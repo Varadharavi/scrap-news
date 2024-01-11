@@ -1,3 +1,7 @@
+import os
+import dotenv
+
+dotenv.load_dotenv()
 # Scrapy settings for news_scraper project
 #
 # For simplicity, this file contains only settings considered important or
@@ -66,8 +70,8 @@ ITEM_PIPELINES = {
    "news_scraper.pipelines.NewsScraperPipeline": 300,
 }
 
-MONGO_URI = 'mongodb+srv://bearbullfolio:2Yy0qdkolyiW3xbG@bearbullfolio-cluster1.26telbo.mongodb.net/'
-MONGO_DATABASE = 'bearbullfolio'
+MONGO_URI = os.environ.get('MONGO_URI')
+MONGO_DATABASE = os.environ.get('MONGO_DATABASE')
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

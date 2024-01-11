@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from scrapy.utils.project import get_project_settings
 import scrapy
 import hashlib
 from pymongo import MongoClient
@@ -12,8 +12,9 @@ class ScrapeMcSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(ScrapeMcSpider, self).__init__(*args, **kwargs)
-        self.mongo_uri = 'mongodb+srv://bearbullfolio:2Yy0qdkolyiW3xbG@bearbullfolio-cluster1.26telbo.mongodb.net/'  # Replace with your MongoDB URI
-        self.mongo_db = 'bearbullfolio'  # Replace with your database name
+        self.settings = get_project_settings()
+        self.mongo_uri = self.settings.get('MONGO_URI')  # Replace with your MongoDB URI
+        self.mongo_db = self.settings.get('MONGO_DATABASE')  # Replace with your database name
 
     def start_requests(self):
         # Connect to MongoDB and retrieve URLs
