@@ -29,5 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Crawl Website
-        run: scrapy crawl scrape_mc
+      - name: Change directory and run script
+        run: |
+          cd news_scraper
+          scrapy crawl scrape_mc
