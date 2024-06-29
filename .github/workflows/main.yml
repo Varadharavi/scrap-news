@@ -32,5 +32,4 @@ jobs:
       - name: Change directory and run script
         run: |
           cd news_scraper
-          scrapy crawl scrape_mc
-          scrapy crawl livemint_scraper
+          python run_multiple_spiders.py
