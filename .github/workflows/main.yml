@@ -1,11 +1,11 @@
-name: Update News from MC
+name: Update News from MC & LiveMint
 
 on:
   push:
     branches:
       - main  # Adjust the branch as needed
   schedule:
-    - cron: '*/10 0-17 * * *'  
+    - cron: '*/15 0-17 * * *'  
 
 jobs:
   run-script:
