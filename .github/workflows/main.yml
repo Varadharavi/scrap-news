@@ -1,4 +1,4 @@
-name: Update News from MC
+name: Update News from MC & LiveMint
 
 on:
   push:
