@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Adjust the branch as needed
   schedule:
-    - cron: '00 13 * * 1-5'  # Run every weekday at 1:00 PM (UTC)
+    - cron: '*/10 0-17 * * *'  
 
 jobs:
   run-script:
@@ -33,3 +33,4 @@ jobs:
         run: |
           cd news_scraper
           scrapy crawl scrape_mc
+          scrapy crawl livemint_scraper

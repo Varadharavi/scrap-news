@@ -29,8 +29,8 @@ class NewsScraperPipeline:
         self.client.close()
 
     def process_item(self, item, spider):
-        # Assuming 'your_collection' is the collection name
-        query = {'hashed_value': item['hashed_value']}
+        query = {'hash': item['hash']}
         update = {'$set': dict(item)}
-        self.db.holdings_news.update_one(query, update, upsert=True)
+        print(self.db)
+        self.db.news_data.update_one(query, update, upsert=True)
         return item
