@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Adjust the branch as needed
   schedule:
-    - cron: '*/15 0-17 * * *'  
+    - cron: '*/15 * * * *'  
 
 jobs:
   run-script:
