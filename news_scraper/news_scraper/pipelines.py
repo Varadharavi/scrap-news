@@ -30,7 +30,8 @@ class NewsScraperPipeline:
 
     def process_item(self, item, spider):
         query = {'hash': item['hash']}
-        update = {'$set': dict(item)}
-        print(self.db)
-        self.db.news_data.update_one(query, update, upsert=True)
+        new_data = dict(item)
+        del new_data['datetime']
+        update_data = {'$set': new_data, "$setOnInsert": {"datetime": item['datetime']}}
+        self.db.news_data.update_one(query, update_data, upsert=True)
         return item
